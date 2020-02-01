@@ -15,8 +15,8 @@ function askName() {
 }
 
 function handleSubmit(event) {
-  const currentValue = input.value;
   event.preventDefault();
+  const currentValue = input.value;
   helloGreeting(currentValue);
   enrollName(currentValue);
 }
@@ -32,7 +32,7 @@ function loadName() {
   if (currentUser === null) {
     askName();
   } else {
-    helloGreeting();
+    helloGreeting(currentUser);
   }
 }
 
