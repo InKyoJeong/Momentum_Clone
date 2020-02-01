@@ -2,38 +2,37 @@ const form = document.querySelector(".js-form"),
   input = form.querySelector("input"),
   greeting = document.querySelector(".js-greetings");
 
-const USER_LS = "currentUser",
-  SHOWING_CN = "showing";
+const USER_LS = "currentUser";
+const SHOWING = "showing";
 
-function saveName(text) {
+function enrollName(text) {
   localStorage.setItem(USER_LS, text);
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const currentValue = input.value;
-  paingGreeting(currentValue);
-  saveName(currentValue);
-}
-
-function askForName() {
-  form.classList.add(SHOWING_CN);
+function askName() {
+  form.classList.add(SHOWING);
   form.addEventListener("submit", handleSubmit);
 }
 
-function paingGreeting(text) {
-  form.classList.remove(SHOWING_CN);
-  greeting.classList.add(SHOWING_CN);
-  greeting.innerText = `Hello ${text}`;
+function handleSubmit(event) {
+  const currentValue = input.value;
+  event.preventDefault();
+  helloGreeting(currentValue);
+  enrollName(currentValue);
+}
+
+function helloGreeting(text) {
+  form.classList.remove(SHOWING);
+  greeting.classList.add(SHOWING);
+  greeting.innerHTML = `Hello ${text}`;
 }
 
 function loadName() {
   const currentUser = localStorage.getItem(USER_LS);
   if (currentUser === null) {
-    askForName();
+    askName();
   } else {
-    //she is
-    paingGreeting(currentUser);
+    helloGreeting();
   }
 }
 
