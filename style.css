@@ -6,3 +6,7 @@
 .showing {
   display: block;
 }
+
+body {
+  background-color: rgb(196, 173, 140);
+}
