@@ -1,3 +1,80 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+li {
+  list-style: none;
+  font-size: 20px;
+  text-shadow: 3px 3px 3px rgb(247, 157, 157);
+  background-color: rgba(248, 250, 250, 0.5);
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+h1 {
+  font-size: 150px;
+  text-shadow: 3px 3px 3px rgb(143, 126, 126);
+  margin-bottom: 10px;
+}
+h4 {
+  text-shadow: 3px 3px 3px rgb(143, 126, 126);
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  overflow: hidden;
+  animation: typingAni 1s steps(30, end) 1;
+}
+h4::after {
+  position: absolute;
+  display: block;
+  content: "";
+  border-right: 1px solid #000;
+  animation: cursor 0.5s step-end infinite;
+}
+@keyframes typingAni {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 250px;
+  }
+}
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+input {
+  opacity: 0.8;
+  box-shadow: 3px 4px 3px 2px #ccc;
+  width: 300px;
+  height: 30px;
+  border: none;
+}
+input::placeholder {
+  color: rgb(17, 13, 13);
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 3px 3px 3px rgb(168, 64, 64);
+}
+input:focus {
+  outline: none;
+}
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
 .form,
 .greetings {
   display: none;
@@ -7,6 +84,20 @@
   display: block;
 }
 
-body {
-  background-color: rgb(196, 173, 140);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
 }
